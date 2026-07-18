@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Wall Crack Detection 
+    </title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- Chart JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PDF -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+    <div class="app">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🏢
+            </div>
+
+            <div class="logo-text">
+
+                <h2>AI Crack</h2>
+
+                <span>Structural Analysis</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a class="active" href="#dashboard">
+
+                <span>📊</span>
+
+                Dashboard
+
+            </a>
+
+            <a href="#upload">
+
+                <span>📷</span>
+
+                Upload Image
+
+            </a>
+
+            <a href="#analysis">
+
+                <span>🤖</span>
+
+                AI Analysis
+
+            </a>
+
+            <a href="#cost">
+
+                <span>💰</span>
+
+                Cost Estimation
+
+            </a>
+
+            <a href="#history">
+
+                <span>📋</span>
+
+                History
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ================= Main ================= -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+
+                    AI-Based Wall Crack Detection and Repair Cost Estimation System
+
+                </h1>
+
+                <p>
+
+                    AI Powered Structural Damage Detection &
+                    Smart Repair Cost Estimation
+
+                </p>
+
+            </div>
+
+            <div class="profile-box">
+
+                <div class="status-dot"></div>
+
+                System Online
+
+            </div>
+
+        </header>
+        <section id="dashboard">
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+
+                📊
+
+            </div>
+
+            <div>
+
+                <h4>Total Analysis</h4>
+
+                <h2 id="totalCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card low">
+
+            <div class="card-icon">
+
+                🟢
+
+            </div>
+
+            <div>
+
+                <h4>Low Severity</h4>
+
+                <h2 id="lowCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card medium">
+
+            <div class="card-icon">
+
+                🟠
+
+            </div>
+
+            <div>
+
+                <h4>Medium Severity</h4>
+
+                <h2 id="mediumCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card high">
+
+            <div class="card-icon">
+
+                🔴
+
+            </div>
+
+            <div>
+
+                <h4>High Severity</h4>
+
+                <h2 id="highCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= Upload Section ================= -->
+
+<section id="upload" class="content-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>📷 Upload Wall Image</h2>
+
+            <p>
+                Capture a live image using your camera or upload an existing wall image for AI analysis.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="upload-grid">
+
+        <!-- Camera Card -->
+
+        <div class="camera-card">
+
+            <h3>Live Camera</h3>
+
+            <div class="camera-preview">
+
+                <video id="video" autoplay playsinline></video>
+
+            </div>
+
+            <div class="camera-actions">
+
+                <button id="startCamera" class="primary-btn">
+
+                    📷 Open Camera
+
+                </button>
+
+                <button id="captureBtn" class="success-btn">
+
+                    📸 Capture Image
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Upload Card -->
+
+        <div class="upload-card">
+
+            <h3>Upload Image</h3>
+
+            <label for="imageInput" class="upload-area">
+
+                <div class="upload-icon">
+
+                    📁
+
+                </div>
+
+                <h3>Drag & Drop Image</h3>
+
+                <p>
+
+                    JPG • PNG • JPEG
+
+                </p>
+
+                <span class="browse-btn">
+
+                    Browse Files
+
+                </span>
+
+            </label>
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                hidden>
+
+        </div>
+
+    </div>
+
+    <!-- Preview -->
+
+    <div class="preview-card">
+
+        <h3>🖼 Image Preview</h3>
+
+        <div class="preview-box">
+
+            <img
+                id="preview"
+                src=""
+                alt="Image Preview">
+
+            <canvas
+                id="canvas"
+                style="display:none;">
+            </canvas>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= Wall Details ================= -->
+
+<section id="wall-details" class="content-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>🏠 Wall Information</h2>
+
+            <p>
+                Enter wall dimensions and crack details for accurate AI estimation.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="details-grid">
+
+        <!-- Wall Length -->
+
+        <div class="form-group">
+
+            <label>Wall Length</label>
+
+            <div class="input-group">
+
+                <input type="number"
+                       id="wallLength"
+                       placeholder="Enter Length">
+
+                <select id="wallLengthUnit">
+
+                     <option value="ft">Feet</option>
+    <option value="cm">CM</option>
+    <option value="mm">MM</option>
+    <option value="in">Inch</option>
+    <option value="m">Meter</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Wall Width -->
+
+        <div class="form-group">
+
+            <label>Wall Width</label>
+
+            <div class="input-group">
+
+                <input type="number"
+                       id="wallWidth"
+                       placeholder="Enter Width">
+
+                <select id="wallWidthUnit">
+
+                     <option value="ft">Feet</option>
+    <option value="cm">CM</option>
+    <option value="mm">MM</option>
+    <option value="in">Inch</option>
+    <option value="m">Meter</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Crack Length -->
+
+        <div class="form-group">
+
+            <label>Crack Length</label>
+
+            <div class="input-group">
+
+                <input type="number"
+                       id="crackLength"
+                       placeholder="Enter Crack Length">
+
+                <select id="crackLengthUnit">
+
+                     <option value="ft">Feet</option>
+    <option value="cm">CM</option>
+    <option value="mm">MM</option>
+    <option value="in">Inch</option>
+    <option value="m">Meter</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Crack Width -->
+
+        <div class="form-group">
+
+            <label>Crack Width</label>
+
+            <div class="input-group">
+
+                <input type="number"
+                       id="crackWidth"
+                       placeholder="Enter Crack Width">
+
+                <select id="crackWidthUnit">
+
+                     <option value="ft">Feet</option>
+    <option value="cm">CM</option>
+    <option value="mm">MM</option>
+    <option value="in">Inch</option>
+    <option value="m">Meter</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Crack Depth -->
+
+        <div class="form-group">
+
+            <label>Crack Depth</label>
+
+            <div class="input-group">
+
+                <input type="number"
+                       id="crackDepth"
+                       placeholder="Enter Crack Depth">
+
+                <select id="crackDepthUnit">
+
+                     <option value="ft">Feet</option>
+    <option value="cm">CM</option>
+    <option value="mm">MM</option>
+    <option value="in">Inch</option>
+    <option value="m">Meter</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Wall Type -->
+
+        <div class="form-group">
+
+            <label>Wall Type</label>
+
+            <select id="wallType">
+
+                <option>Interior Wall</option>
+
+                <option>Exterior Wall</option>
+
+                <option>Tile</option>
+
+                <option>Concrete Surface</option>
+
+            </select>
+
+        </div>
+
+        <!-- Wall Material -->
+
+        <div class="form-group">
+
+            <label>Wall Material</label>
+
+          <select id="wall_material">
+
+                <option>Brick</option>
+
+                <option>Wire Brick</option>
+
+                <option>Box Brick</option>
+
+                <option>Fly Ash Brick</option>
+
+                <option>Concrete Brick</option>
+
+                <option>AAC Block</option>
+
+                <option>Stone</option>
+
+                <option>Tile</option>
+
+            </select>
+
+        </div>
+
+        <!-- Putty -->
+
+        <div class="form-group">
+
+            <label>Putty</label>
+
+            <select id="putty">
+
+                <option>Single coat putty</option>
+
+                <option>Double Coat putty</option>
+
+            </select>
+
+        </div>
+
+        <!-- Existing Paint -->
+
+        <div class="form-group">
+
+            <label>Existing Paint</label>
+
+            <select id="existing_paint_type">
+
+                <option>Emulsion Paint</option>
+
+                <option>Enamel Paint</option>
+
+                <option>EpoxyPaint</option>
+
+                <option>Acrylic Paint-artist</option>
+                
+                <option>Oil Paint</option>
+
+                <option>Primer</option>
+
+            </select>
+
+        </div>
+
+        <!-- Coat -->
+
+        <div class="form-group">
+
+            <label>New Coat</label>
+
+            <select id="coat_type">
+
+                <option>Single</option>
+
+                <option>Double</option>
+
+                <option>No Putty</option>
+
+            </select>
+
+        </div>
+
+        <!-- New Paint -->
+
+        <div class="form-group">
+
+            <label>New Paint</label>
+
+            <select id="paint_type">
+
+                <option>Economy-Waterproof</option>
+
+                <option>Premium-Waterproof</option>
+
+                <option>No Waterproof</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="form-group">
+
+    <label>Surface Coating</label>
+
+    <select id="surface_coating">
+
+        <option>None</option>
+
+        <option>Waterproof</option>
+
+        <option>Weather Shield</option>
+
+        <option>Anti Fungus</option>
+
+    </select>
+
+</div>
+
+<!-- ================= Custom Estimation ================= -->
+
+<section class="content-card">
+
+    <div class="toggle-header">
+
+        <label>
+
+            <input type="checkbox"
+                   id="customEstimate">
+
+            Customize Estimation
+
+        </label>
+
+    </div>
+
+    <div id="customOptions">
+
+        <div class="details-grid">
+
+            <div class="form-group">
+
+                <label>Cement Price</label>
+
+                 <label>Cement Bag Price (50 Kg)</label>
+        <input type="number" id="cementPrice" placeholder="390">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Putty Bag Price (20 Kg)</label>
+        <input type="number" id="puttyPrice" placeholder="650">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Primer Price (1 L)</label>
+        <input type="number" id="primerPrice" placeholder="280">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Paint Price</label>
+
+                <label>Paint Price (1 L)</label>
+        <input type="number" id="paintPrice" placeholder="350">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Thinner Price</label>
+
+                <input type="number"
+                       id="thinnerPrice"
+                       placeholder="220">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= Analyze Button ================= -->
+
+<section class="analyze-section">
+
+    <button id="analyzeBtn">
+
+        🤖 Analyze with AI
+
+    </button>
+
+</section>
+<!-- ================= AI Analysis Result ================= -->
+
+<section id="analysis" class="content-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>🤖 AI Analysis Result</h2>
+
+            <p>
+                AI-generated crack detection report and repair recommendation.
+            </p>
+
+            <div id="aiStatus" class="ai-status">
+                🤖 AI Ready
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="result-grid">
+
+        <!-- Crack Type -->
+        <div class="result-card">
+
+            <span class="result-label">🧱 Crack Type</span>
+
+            <h3 id="crackType">-</h3>
+
+        </div>
+
+        
+           
+
+        <!-- ================= Detected Image ================= -->
+
+        <div class="detected-image-card">
+
+            <h3>🖼 AI Detected Image</h3>
+
+            <img
+                id="detectedImage"
+                src=""
+                alt="Detected Crack"
+                style="
+                    width:100%;
+                    max-width:600px;
+                    display:none;
+                    margin-top:20px;
+                    border-radius:12px;
+                    border:2px solid #ddd;
+                ">
+
+        </div>
+        <!-- ================= AI Summary ================= -->
+<div class="ai-summary-card">
+
+    <h3>🤖 AI Detection Summary</h3>
+
+    <div class="ai-summary-box">
+
+        <div class="ai-info-card model">
+
+            <h4>AI Model</h4>
+
+            <p>YOLOv8 Nano</p>
+
+        </div>
+
+        <div class="ai-info-card dataset">
+
+            <h4>Dataset</h4>
+
+            <p>Kaggle Wall Crack Dataset</p>
+
+        </div>
+
+        <div class="ai-info-card confidence">
+
+            <h4>Confidence</h4>
+
+            <p id="confidence">-</p>
+
+            <div class="confidence-bar">
+
+                <div id="confidenceFill" class="confidence-fill"></div>
+
+            </div>
+
+        </div>
+
+        <div class="ai-info-card class">
+
+            <h4>Detected Class</h4>
+
+            <p id="detectedClass">-</p>
+
+        </div>
+
+    </div>
+
+</div>
+        <!-- Severity -->
+
+        <div class="result-card warning">
+
+            <span class="result-label">⚠ Severity</span>
+
+            <h3 id="severity">-</h3>
+
+        </div>
+
+        <!-- Repair -->
+
+        <div class="result-card success">
+
+            <span class="result-label">🛠 Repair Suggestion</span>
+
+            <h3 id="repair">-</h3>
+
+        </div>
+
+        <!-- Cost -->
+
+        <div class="result-card primary">
+
+            <span class="result-label">💰 Estimated Cost</span>
+
+            <h3 id="cost">-</h3>
+
+        </div>
+
+        <!-- Time -->
+
+        <div class="result-card">
+
+            <span class="result-label">⏱ Repair Time</span>
+
+            <h3 id="time">-</h3>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= Cost Estimation ================= -->
+
+<section id="cost" class="content-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>💰 Repair Cost Estimation</h2>
+
+            <p>
+
+                Material quantity and repair cost generated using AI estimation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h4>📐 Wall Area</h4>
+
+            <h2 id="wallArea">-</h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h4>🛠 Crack Area</h4>
+
+            <h2 id="crackArea">-</h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h4>💵 Total Cost</h4>
+
+            <h2 id="totalCost">₹0</h2>
+
+        </div>
+
+    </div>
+
+    <div class="cost-layout">
+
+        <!-- Material List -->
+
+        <div class="material-card">
+
+            <h3>📦 Materials Required</h3>
+
+            <ul>
+
+                <li>Putty <span id="puttyQty">-</span></li>
+
+                <li>Cement <span id="cementQty">-</span></li>
+
+                <li>Primer <span id="primerQty">-</span></li>
+
+                <li>Paint <span id="paintQty">-</span></li>
+
+                <li>Thinner <span id="thinnerQty">-</span></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Cost Breakdown -->
+
+        <div class="material-card">
+
+            <h3>💳 Cost Breakdown</h3>
+
+            <ul>
+
+                <li>Putty <span id="puttyCost">-</span></li>
+
+                <li>Cement <span id="cementCost">-</span></li>
+
+                <li>Primer <span id="primerCost">-</span></li>
+
+                <li>Paint <span id="paintCost">-</span></li>
+
+                <li>Thinner <span id="thinnerCost">-</span></li>
+
+                <li>Labour <span id="labourCost">-</span></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Chart -->
+
+        <div class="chart-card">
+
+            <h3>📊 Cost Distribution</h3>
+
+            <canvas id="costChart"></canvas>
+
+        </div>
+
+    </div>
+<div class="labour-note">
+
+            💡 <strong>Note:</strong>
+            Labour cost is optional and may vary depending on the location and repair work.
+
+        </div>
+    <div class="final-summary">
+
+        <div>
+
+            <h3>Total Material Cost</h3>
+
+            <h2 id="materialCost">₹0</h2>
+
+        </div>
+
+        <div>
+
+            <h3>Labour Cost</h3>
+
+            <h2 id="labourCostDisplay">₹0</h2>
+
+        </div>
+
+        <div>
+
+            <h3>Final Cost</h3>
+
+            <h1 id="finalCost">₹0</h1>
+
+        </div>
+
+    </div>
+
+    <div class="download-section">
+
+        <button id="downloadReportBtn">
+
+            📄 Download PDF
+
+        </button>
+
+    </div>
+
+</section>
+<!-- ================= Analysis History ================= -->
+
+<section id="history" class="content-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>📋 Analysis History</h2>
+
+          <button id="deleteHistoryBtn" class="delete-history-btn">
+    Delete History
+</button>  
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table id="historyTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Serial No</th>
+
+                    <th>Crack Type</th>
+
+                    <th>Suggested Paint Type</th>
+                    
+                    <th>Description</th>
+                    
+                    <th>Quantity</th>
+
+                    <th>Severity</th>
+
+                    <th>Cost</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <!-- Dynamic Data -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- ================= Footer ================= -->
+
+<footer class="footer">
+
+    <div>
+
+        <h3>🏢  Crack Detection</h3>
+
+        <p>
+
+             Crack Detection &
+            Smart Repair Cost Estimation System
+
+        </p>
+
+    </div>
+
+    <div class="footer-right">
+
+        <span>
+
+            Version 1.0
+
+        </span>
+
+        <span>
+
+            © 2026 All Rights Reserved
+
+        </span>
+
+    </div>
+
+</footer>
+
+</main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

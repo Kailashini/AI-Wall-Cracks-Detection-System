@@ -1,0 +1,7 @@
+venv/
+runs/
+Backend/uploads/
+__pycache__/
+*.pyc
+*.db
+yolov8n.pt

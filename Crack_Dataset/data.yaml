@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 6
+names: ['Diagonal Crack', 'Hairline-Crack', 'Horizontal Settlement Crack', 'No-Crack', 'Structural-Crack', 'Vertical Crack']
+
+roboflow:
+  workspace: kailashini
+  project: new-crack-classification-j7wkg
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/kailashini/new-crack-classification-j7wkg/dataset/1
