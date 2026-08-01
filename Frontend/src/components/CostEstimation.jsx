@@ -399,11 +399,18 @@ y += 75;
       <div className="download-section">
        
     <button
+<<<<<<< HEAD
       className="download-btn"
       onClick={downloadPDF}
     >
       📄 Download PDF
     </button>          
+=======
+    onClick={downloadPDF}
+>
+    📄 Download PDF
+</button>          
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
       </div>
     </section>
   );

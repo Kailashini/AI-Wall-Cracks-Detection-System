@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState, useRef, useEffect, useCallback } from "react";
+=======
+import { useState, useRef } from "react";
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 import { analyzeWall } from "../services/api";
 
 function UploadSection({
@@ -8,17 +12,27 @@ function UploadSection({
   setResult,
   originalImage,
   setOriginalImage,
+<<<<<<< HEAD
   loading,
   setLoading,
   setAnalyzeHandler,
   loadDashboard,
   loadHistory,
+=======
+   loadDashboard,
+  loadHistory
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 }) {
   
   // ================= State =================
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
   const [capturedBlob, setCapturedBlob] = useState(null);
+<<<<<<< HEAD
+=======
+  
+  const [loading, setLoading] = useState(false);
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 
   // ================= Refs =================
   const videoRef = useRef(null);
@@ -94,11 +108,19 @@ function UploadSection({
     );
   };
 // ================= Analyze =================
+<<<<<<< HEAD
   const handleAnalyze = useCallback(async () => {
     console.log("Analyze button clicked");
     try {
       setLoading(true);
       console.log("Wall Details:", wallDetails);
+=======
+  const handleAnalyze = async () => {
+    console.log("Analyze button clicked");
+    try {
+      setLoading(true);
+console.log("Wall Details:", wallDetails);
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
       const formData = new FormData();
       
 formData.append(
@@ -228,13 +250,18 @@ formData.append(
 
       setResult(data);
       loadDashboard();
+<<<<<<< HEAD
       loadHistory();
+=======
+loadHistory();
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
     } catch (error) {
       console.error(error);
       alert("Failed to connect to Flask backend.");
     } finally {
       setLoading(false);
     }
+<<<<<<< HEAD
   }, [capturedBlob, customEstimate, image, loadDashboard, loadHistory, setLoading, setResult, wallDetails]);
 
   useEffect(() => {
@@ -242,6 +269,9 @@ formData.append(
       setAnalyzeHandler(() => handleAnalyze);
     }
   }, [handleAnalyze, setAnalyzeHandler]);
+=======
+  };
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 
   return (
     <section id="upload" className="content-card">
@@ -351,6 +381,7 @@ formData.append(
           
         </div>
       </div>
+<<<<<<< HEAD
       {result && (
         <div className="result-card">
           <h2>Analysis Result</h2>
@@ -381,6 +412,23 @@ formData.append(
           </p>
         </div>
       )}
+=======
+       <div className="button-section">
+
+<button
+  type="button"
+  className="analyze-btn"
+  onClick={handleAnalyze}
+  disabled={loading}
+>
+  {loading
+    ? "⏳ AI Analyzing..."
+    : "🤖 Analyze with AI"}
+</button>
+
+</div>
+      
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
     </section>
   );
 }

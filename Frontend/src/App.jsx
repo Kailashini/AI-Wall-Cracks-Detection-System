@@ -50,8 +50,11 @@ const [result, setResult] = useState(null);
 const [history, setHistory] = useState([]);
 const [originalImage, setOriginalImage] = useState("");
 const [detectedImage, setDetectedImage] = useState("");
+<<<<<<< HEAD
 const [loading, setLoading] = useState(false);
 const [analyzeHandler, setAnalyzeHandler] = useState(null);
+=======
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 const [dashboard, setDashboard] = useState({
   total_reports: 0,
   low: 0,
@@ -94,11 +97,18 @@ const loadHistory = async () => {
   setResult={setResult}
   originalImage={originalImage}
   setOriginalImage={setOriginalImage}
+<<<<<<< HEAD
   loading={loading}
   setLoading={setLoading}
   setAnalyzeHandler={setAnalyzeHandler}
   loadDashboard={loadDashboard}
   loadHistory={loadHistory}
+=======
+  
+    loadDashboard={loadDashboard}
+  loadHistory={loadHistory}
+
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
         <WallDetails
   wallDetails={wallDetails}
@@ -107,8 +117,11 @@ const loadHistory = async () => {
        <CustomEstimate
   customEstimate={customEstimate}
   setCustomEstimate={setCustomEstimate}
+<<<<<<< HEAD
   analyzeHandler={analyzeHandler}
   loading={loading}
+=======
+>>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
         <AnalysisResult result={result} />
         <CostEstimation
