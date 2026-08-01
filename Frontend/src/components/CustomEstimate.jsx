@@ -1,11 +1,8 @@
 function CustomEstimate({
   customEstimate,
   setCustomEstimate,
-<<<<<<< HEAD
   analyzeHandler,
   loading,
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 }) { 
   const handleChange = (e) => {
   const { id, value, type, checked } = e.target;
@@ -118,7 +115,6 @@ function CustomEstimate({
 
       </div>
 
-<<<<<<< HEAD
       <div className="custom-estimate-action">
         <button
           type="button"
@@ -130,8 +126,6 @@ function CustomEstimate({
         </button>
       </div>
 
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
     </section>
   );
 }

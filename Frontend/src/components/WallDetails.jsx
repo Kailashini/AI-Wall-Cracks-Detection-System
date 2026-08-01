@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useRef } from "react";
 
 function WallDetails({wallDetails, setWallDetails}) {
@@ -27,18 +26,6 @@ function WallDetails({wallDetails, setWallDetails}) {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-=======
-function WallDetails({wallDetails, setWallDetails}) {
-const toMeter = {
-  m: 1,
-  cm: 0.01,
-  mm: 0.001,
-  ft: 0.3048,
-  in: 0.0254,
-};
-  const handleChange = (e) => {
-  const { id, value } = e.target;
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 
   setWallDetails((prev) => {
     let updated = {
@@ -99,11 +86,8 @@ if (unitMap[id]) {
   placeholder="Enter Length"
   value={wallDetails.wallLength}
   onChange={handleChange}
-<<<<<<< HEAD
   onKeyDown={(e) => handleKeyDown(e, 0)}
   ref={(el) => (fieldRefs.current[0] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
 
             <select
@@ -132,11 +116,8 @@ if (unitMap[id]) {
   placeholder="Enter width"
   value={wallDetails.wallWidth}
   onChange={handleChange}
-<<<<<<< HEAD
   onKeyDown={(e) => handleKeyDown(e, 1)}
   ref={(el) => (fieldRefs.current[1] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
 
             <select
@@ -165,11 +146,8 @@ if (unitMap[id]) {
   placeholder="Enter Crack Length"
   value={wallDetails.crackLength}
   onChange={handleChange}
-<<<<<<< HEAD
   onKeyDown={(e) => handleKeyDown(e, 2)}
   ref={(el) => (fieldRefs.current[2] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
 
             <select
@@ -198,11 +176,8 @@ if (unitMap[id]) {
   placeholder="Enter Crack Width"
   value={wallDetails.crackWidth}
   onChange={handleChange}
-<<<<<<< HEAD
   onKeyDown={(e) => handleKeyDown(e, 3)}
   ref={(el) => (fieldRefs.current[3] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
 
             <select
@@ -231,11 +206,8 @@ if (unitMap[id]) {
   placeholder="Enter Depth"
   value={wallDetails.crackDepth}
   onChange={handleChange}
-<<<<<<< HEAD
   onKeyDown={(e) => handleKeyDown(e, 4)}
   ref={(el) => (fieldRefs.current[4] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 />
 
             <select
@@ -260,11 +232,8 @@ if (unitMap[id]) {
     id="wallType"
     value={wallDetails.wallType}
     onChange={handleChange}
-<<<<<<< HEAD
     onKeyDown={(e) => handleKeyDown(e, 5)}
     ref={(el) => (fieldRefs.current[5] = el)}
-=======
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
 >
             <option>Interior Wall</option>
             <option>Exterior Wall</option>
@@ -278,7 +247,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>Wall Material</label>
 
-<<<<<<< HEAD
           <select
     id="wallMaterial"
     value={wallDetails.wallMaterial}
@@ -286,9 +254,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 6)}
     ref={(el) => (fieldRefs.current[6] = el)}
 >
-=======
-          <select id="Wall_Material">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>Brick</option>
             <option>Wire Brick</option>
             <option>Box Brick</option>
@@ -305,7 +270,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>Putty</label>
 
-<<<<<<< HEAD
           <select
     id="putty"
     value={wallDetails.putty}
@@ -313,9 +277,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 7)}
     ref={(el) => (fieldRefs.current[7] = el)}
 >
-=======
-          <select id="Putty">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>Single coat putty</option>
             <option>Double Coat putty</option>
           </select>
@@ -326,7 +287,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>Existing Paint</label>
 
-<<<<<<< HEAD
           <select
     id="existingPaintType"
     value={wallDetails.existingPaintType}
@@ -334,9 +294,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 8)}
     ref={(el) => (fieldRefs.current[8] = el)}
 >
-=======
-          <select id="Existing_paint_type">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>Emulsion Paint</option>
             <option>Enamel Paint</option>
             <option>Epoxy Paint</option>
@@ -351,7 +308,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>New Coat</label>
 
-<<<<<<< HEAD
           <select
     id="coatType"
     value={wallDetails.coatType}
@@ -359,9 +315,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 9)}
     ref={(el) => (fieldRefs.current[9] = el)}
 >
-=======
-          <select id="coat_type">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>Single</option>
             <option>Double</option>
             <option>No Putty</option>
@@ -373,7 +326,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>New Paint</label>
 
-<<<<<<< HEAD
           <select
     id="paintType"
     value={wallDetails.paintType}
@@ -381,9 +333,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 10)}
     ref={(el) => (fieldRefs.current[10] = el)}
 >
-=======
-          <select id="Paint_type">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>Economy-Waterproof</option>
             <option>Premium-Waterproof</option>
             <option>No Waterproof</option>
@@ -395,7 +344,6 @@ if (unitMap[id]) {
         <div className="form-group">
           <label>Surface Coating</label>
 
-<<<<<<< HEAD
           <select
     id="surfaceCoating"
     value={wallDetails.surfaceCoating}
@@ -403,9 +351,6 @@ if (unitMap[id]) {
     onKeyDown={(e) => handleKeyDown(e, 11)}
     ref={(el) => (fieldRefs.current[11] = el)}
 >
-=======
-          <select id="Surface_coating">
->>>>>>> 75c0599b1d8640f7aa905a6499523808c4d3379f
             <option>None</option>
             <option>Waterproof</option>
             <option>Weather Shield</option>
