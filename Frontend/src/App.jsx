@@ -50,11 +50,8 @@ const [result, setResult] = useState(null);
 const [history, setHistory] = useState([]);
 const [originalImage, setOriginalImage] = useState("");
 const [detectedImage, setDetectedImage] = useState("");
-
 const [loading, setLoading] = useState(false);
 const [analyzeHandler, setAnalyzeHandler] = useState(null);
-
-
 const [dashboard, setDashboard] = useState({
   total_reports: 0,
   low: 0,
@@ -97,18 +94,11 @@ const loadHistory = async () => {
   setResult={setResult}
   originalImage={originalImage}
   setOriginalImage={setOriginalImage}
-
   loading={loading}
   setLoading={setLoading}
   setAnalyzeHandler={setAnalyzeHandler}
   loadDashboard={loadDashboard}
   loadHistory={loadHistory}
-
-  
-    loadDashboard={loadDashboard}
-  loadHistory={loadHistory}
-
-
 />
         <WallDetails
   wallDetails={wallDetails}
@@ -117,10 +107,8 @@ const loadHistory = async () => {
        <CustomEstimate
   customEstimate={customEstimate}
   setCustomEstimate={setCustomEstimate}
-
   analyzeHandler={analyzeHandler}
   loading={loading}
-
 />
         <AnalysisResult result={result} />
         <CostEstimation

@@ -6,7 +6,7 @@ function Sidebar() {
 
         <div className="logo-text">
           <h2>AI Crack</h2>
-          <span>Structural Analysis</span>
+          
         </div>
       </div>
 

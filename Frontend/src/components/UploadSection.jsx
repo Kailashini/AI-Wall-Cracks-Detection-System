@@ -351,36 +351,8 @@ formData.append(
           
         </div>
       </div>
-      {result && (
-        <div className="result-card">
-          <h2>Analysis Result</h2>
-
-          <p>
-            <strong>Crack Type:</strong>{" "}
-            {result.crack_type}
-          </p>
-
-          <p>
-            <strong>Severity:</strong>{" "}
-            {result.severity}
-          </p>
-
-          <p>
-            <strong>Confidence:</strong>{" "}
-            {result.confidence}
-          </p>
-
-          <p>
-            <strong>Total Cost:</strong>{" "}
-            {result.total_cost}
-          </p>
-
-          <p>
-            <strong>Estimated Days:</strong>{" "}
-            {result.repair_duration}
-          </p>
-        </div>
-      )}
+      
+  
     </section>
   );
 }

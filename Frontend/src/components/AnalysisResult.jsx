@@ -17,149 +17,85 @@ function AnalysisResult({ result }) {
           </div>
         </div>
 
-        <div className="result-grid">
-
-          {/* Crack Type */}
-          <div className="result-card">
-            <span className="result-label">
-              🧱 Crack Type
-            </span>
-
-            <h3>{result?.crack_type || "-"}</h3>
-          </div>
-
-          {/* Detected Image */}
+        <div className="ai-detection-row">
+          {/* 1. AI Detected Image Panel */}
           <div className="detected-image-card">
-
             <h3>🖼 AI Detected Image</h3>
 
             {result?.detected_image ? (
-
-              <img
-                src={`http://127.0.0.1:5000${result.detected_image}`}
-                alt="Detected Crack"
-                style={{
-                  width: "100%",
-                  maxWidth: "600px",
-                  marginTop: "20px",
-                  borderRadius: "12px",
-                  border: "2px solid #ddd",
-                  display: "block",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              />
-
+              <div className="detected-image-wrapper">
+                <img
+                  src={`http://127.0.0.1:5000${result.detected_image}`}
+                  alt="Detected Crack"
+                  className="detected-image-img"
+                />
+              </div>
             ) : (
-
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "40px",
-                  color: "#777",
-                }}
-              >
+              <div className="detected-image-placeholder">
                 <p>No detected image</p>
               </div>
-
             )}
-
           </div>
 
-          {/* AI Summary */}
-          <div className="ai-summary-card">
-
-            <h3>🤖 AI Detection Summary</h3>
-
-            <div className="ai-summary-box">
-
-              <div className="ai-info-card model">
-                <h4>AI Model</h4>
-                <p>YOLOv8 Nano</p>
-              </div>
-
-              <div className="ai-info-card dataset">
-                <h4>Dataset</h4>
-                <p>Kaggle Wall Crack Dataset</p>
-              </div>
-
-              <div className="ai-info-card confidence">
-
-                <h4>Confidence</h4>
-
-                <p>{result?.confidence || "-"}</p>
-
-                <div className="confidence-bar">
-
-                  <div
-                    className="confidence-fill"
-                    style={{
-                      width: `${parseFloat(
-                        result?.confidence?.replace("%", "") || 0
-                      )}%`,
-                    }}
-                  ></div>
-
-                </div>
-
-              </div>
-
-              <div className="ai-info-card class">
-
-                <h4>Detected Class</h4>
-
-                <p>{result?.crack_type || "-"}</p>
-
-              </div>
-
+          {/* 2. Confidence Card (Positioned in horizontal gap between Image & Summary) */}
+          <div className="confidence-bridge-card">
+            <span className="confidence-label">Confidence</span>
+            <h3 className="confidence-value">{result?.confidence || "-"}</h3>
+            <div className="confidence-bar">
+              <div
+                className="confidence-fill"
+                style={{
+                  width: `${parseFloat(
+                    result?.confidence?.replace("%", "") || 0
+                  )}%`,
+                }}
+              ></div>
             </div>
-
           </div>
 
-          {/* Severity */}
-          <div className="result-card warning">
+          {/* 3. AI Detection Summary */}
+          <div className="ai-summary-card">
+            <h3>🤖 AI Detection Summary</h3>
+            <div className="ai-summary-content">
+              <div className="summary-item">
+                <span className="summary-item-label">🧱 Crack Type</span>
+                <span className="summary-item-value">{result?.crack_type || "-"}</span>
+              </div>
+              <div className="summary-item">
+                <span className="summary-item-label">📋 Overview</span>
+                <p className="summary-item-desc">
+                  {result?.description || (result ? "Wall surface scan completed." : "No analysis performed yet.")}
+                </p>
+              </div>
+            </div>
+          </div>
 
-            <span className="result-label">
-              ⚠ Severity
-            </span>
-
+          {/* 4. Severity Panel */}
+          <div className="result-card warning severity-panel">
+            <span className="result-label">⚠ Severity</span>
             <h3>{result?.severity || "-"}</h3>
-
           </div>
+        </div>
 
-          {/* Repair */}
+        {/* Secondary Details Grid */}
+        <div className="result-grid secondary-details">
+          {/* Repair Suggestion */}
           <div className="result-card success">
-
-            <span className="result-label">
-              🛠 Repair Suggestion
-            </span>
-
+            <span className="result-label">🛠 Repair Suggestion</span>
             <h3>{result?.repair || "-"}</h3>
-
           </div>
 
           {/* Cost */}
           <div className="result-card primary">
-
-            <span className="result-label">
-              💰 Estimated Cost
-            </span>
-
+            <span className="result-label">💰 Estimated Cost</span>
             <h3>{result?.total_cost || result?.cost || "-"}</h3>
-
           </div>
 
           {/* Time */}
           <div className="result-card">
-
-            <span className="result-label">
-              ⏱ Repair Time
-            </span>
-
+            <span className="result-label">⏱ Repair Time</span>
             <h3>{result?.time || "-"}</h3>
-
           </div>
-
         </div>
 
       </section>
